@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #  Script.sh
-#  SimpResearch
+#  QBFramework
 #
-#  Created by quentin on 2017/1/20.
-#  Copyright © 2017年 上海美市科技有限公司. All rights reserved.
+#  Created by quentin on 2016/1/20.
+#  Copyright © 2016年 QBFramework. All rights reserved.
 
 basepath=$(cd `dirname $0`; pwd)
 cd ${basepath}
