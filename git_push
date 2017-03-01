@@ -4,7 +4,7 @@
 #  QBFramework
 #
 #  Created by quentin on 16/7/22.
-#  Copyright © 2016年 Quentin. All rights reserved.
+#  Copyright © 2016年 QBFramework. All rights reserved.
 
 basepath=$(cd `dirname $0`; pwd)
 cd ${basepath}
