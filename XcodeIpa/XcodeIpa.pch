@@ -1,0 +1,17 @@
+//
+//  XcodeIpa.pch
+//  XcodeIpa
+//
+//  Created by quentin on 2017/2/24.
+//  Copyright © 2017年 Quentin. All rights reserved.
+//
+
+#ifndef XcodeIpa_pch
+#define XcodeIpa_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "XIConfig.h"
+
+#endif /* XcodeIpa_pch */

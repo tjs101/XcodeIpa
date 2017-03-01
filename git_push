@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#  git_push.sh
+#  QBFramework
+#
+#  Created by quentin on 16/7/22.
+#  Copyright © 2016年 Quentin. All rights reserved.
+
+basepath=$(cd `dirname $0`; pwd)
+cd ${basepath}
+function input()
+{
+    echo "请输入本次修改的内容"
+    read string
+    if [ "${string}" == "" ]
+    then
+    echo "输入为空，重新输入"
+    input
+    else
+    git pull && git add -A && git commit -m ${string} && git push
+    fi
+}
+
+input
