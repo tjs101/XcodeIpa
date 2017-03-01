@@ -295,25 +295,25 @@ typedef NS_ENUM(NSInteger, ScriptType)
 
             else if (_scriptType == ScriptType_BuildArchive)
             {// build archive
-                if ([outputString.lowercaseString containsString:@"archive succeeded"]){
+                if ([outputString.lowercaseString containsString:@"archive succeeded"]) {
 
                     [self progressStatus:@"Export Project..."];
                     
                     [outputPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-                } else if ([outputString.lowercaseString containsString:@"clean succeeded"]){
+                } else if ([outputString.lowercaseString containsString:@"clean succeeded"]) {
                     
                     [self progressStatus:@"Archive Project..."];
                     
                     [outputPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-                } else if ([outputString.lowercaseString containsString:@"export succeeded"]){
-                    //Check and Upload IPA File
+                } else if ([outputString.lowercaseString containsString:@"export succeeded"]) {
+                    
                     [self progressStatus:@"Export IPA successed!"];
                     
-                } else if ([outputString.lowercaseString containsString:@"export failed"]){
+                } else if ([outputString.lowercaseString containsString:@"export failed"]) {
 
                     [self progressStatus:@"Export failed!"];
                     
-                } else if ([outputString.lowercaseString containsString:@"archive failed"]){
+                } else if ([outputString.lowercaseString containsString:@"archive failed"]) {
                     [self progressStatus:@"Archive failed!"];
                 } else {
                     
