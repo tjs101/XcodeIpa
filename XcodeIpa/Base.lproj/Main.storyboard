@@ -955,14 +955,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                 </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxh-BR-j4K">
-                                <rect key="frame" x="97" y="12" width="73" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Fir.im" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QU5-rz-aJp">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
+                                <connections>
+                                    <action selector="onPgyerUploadClick:" target="XfG-lQ-9wD" id="zJe-jX-Kc9"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3pH-wa-Ili">
                                 <rect key="frame" x="170" y="13" width="97" height="32"/>
@@ -1001,12 +996,15 @@
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imS-cV-1KL">
                                 <rect key="frame" x="124" y="273" width="317" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="1" id="tod-kb-Hr9">
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="tod-kb-Hr9">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <objectValues>
-                                        <string>DEV</string>
+                                        <string>app-store</string>
+                                        <string>ad-hoc</string>
+                                        <string>enterprise</string>
+                                        <string>development</string>
                                     </objectValues>
                                 </comboBoxCell>
                                 <connections>
@@ -1042,18 +1040,40 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBQ-xh-dcH">
-                                <rect key="frame" x="176" y="72" width="63" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Az-Y1-TYX">
+                                <rect key="frame" x="268" y="73" width="63" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Svn" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zUj-rR-cWe">
+                                <buttonCell key="cell" type="push" title="Svn" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="o4v-0F-9GT">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FnN-hG-Noi">
-                                <rect key="frame" x="245" y="72" width="58" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oEU-wa-xb6">
+                                <rect key="frame" x="210" y="73" width="58" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Git" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="GUt-I8-5l8">
+                                <buttonCell key="cell" type="push" title="Git" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fr8-0i-Xq1">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <pathControl verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HxI-Yy-Rw1">
+                                <rect key="frame" x="90" y="49" width="423" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <pathCell key="cell" selectable="YES" editable="YES" alignment="left" placeholderString="Choose Ipa Path" pathStyle="popUp" id="MW9-3k-RpI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <allowedTypes>
+                                        <string>ipa</string>
+                                    </allowedTypes>
+                                </pathCell>
+                                <connections>
+                                    <action selector="onIpaPathChoose:" target="XfG-lQ-9wD" id="sYz-yM-MD6"/>
+                                </connections>
+                            </pathControl>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rxh-BR-j4K">
+                                <rect key="frame" x="94" y="12" width="73" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Fir.im" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QU5-rz-aJp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1064,6 +1084,7 @@
                         <outlet property="archiveClickBtn" destination="ijA-jF-bhq" id="Cwn-bk-8as"/>
                         <outlet property="buildSchemeBox" destination="KF4-Lj-ihY" id="MR5-7y-A4y"/>
                         <outlet property="buildTypeBox" destination="imS-cV-1KL" id="jAJ-AF-faI"/>
+                        <outlet property="ipaPathControl" destination="HxI-Yy-Rw1" id="Ycn-Vf-nGW"/>
                         <outlet property="progressStatusLabel" destination="jym-SA-f8S" id="PwN-FM-wLw"/>
                         <outlet property="projectPathControl" destination="rNN-Sx-5fj" id="Qtv-yT-Prx"/>
                         <outlet property="teamIdBox" destination="Wdt-ye-PRP" id="RSK-kB-4B7"/>
@@ -1072,7 +1093,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-34" y="635"/>
+            <point key="canvasLocation" x="-226" y="719.5"/>
         </scene>
         <!--Show Log-->
         <scene sceneID="G6v-1r-r2L">

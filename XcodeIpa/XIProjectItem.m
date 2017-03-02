@@ -10,7 +10,6 @@
 
 @interface XIProjectItem ()
 
-@property (nonatomic, strong, readwrite) NSURL *ipaPath;/**<ipa path>*/
 @property (nonatomic, strong, readwrite) NSURL *uuidPath;/**<uuid path>*/
 @property (nonatomic, strong, readwrite) NSURL *exportOptionsPlistPath;/**<exportOptionsPlist path>*/
 @end

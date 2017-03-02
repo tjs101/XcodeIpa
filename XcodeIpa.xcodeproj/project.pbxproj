@@ -15,6 +15,7 @@
 		66574CCE1E5FC7F000A5BFB9 /* XIHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66574CCC1E5FC7F000A5BFB9 /* XIHomeViewController.m */; };
 		6663BF351E6661FD00E637EB /* XIAdvanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6663BF341E6661FD00E637EB /* XIAdvanceViewController.m */; };
 		6685F6C81E5FD72E004ABB22 /* XIProjectItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6685F6C71E5FD72E004ABB22 /* XIProjectItem.m */; };
+		66AEEF391E67E93C00488950 /* PgyerUploadScript.sh in Resources */ = {isa = PBXBuildFile; fileRef = 66AEEF381E67E93C00488950 /* PgyerUploadScript.sh */; };
 		66D136901E5EC8C70025580E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D1368F1E5EC8C70025580E /* AppDelegate.m */; };
 		66D136931E5EC8C70025580E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 66D136921E5EC8C70025580E /* main.m */; };
 		66D136981E5EC8C70025580E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D136971E5EC8C70025580E /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		6685F6C41E5FD361004ABB22 /* XIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XIConfig.h; sourceTree = "<group>"; };
 		6685F6C61E5FD72E004ABB22 /* XIProjectItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XIProjectItem.h; sourceTree = "<group>"; };
 		6685F6C71E5FD72E004ABB22 /* XIProjectItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XIProjectItem.m; sourceTree = "<group>"; };
+		66AEEF381E67E93C00488950 /* PgyerUploadScript.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = PgyerUploadScript.sh; sourceTree = "<group>"; };
 		66D1368B1E5EC8C70025580E /* XcodeIpa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeIpa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D1368E1E5EC8C70025580E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		66D1368F1E5EC8C70025580E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				663A4B651E6193FD0058F019 /* ProjectBuildScript.sh */,
 				66D136A41E5ECB6D0025580E /* GetSchemeScript.sh */,
 				66D136A61E5ECB720025580E /* TeamIDScript.sh */,
+				66AEEF381E67E93C00488950 /* PgyerUploadScript.sh */,
 				66D136921E5EC8C70025580E /* main.m */,
 				6685F6C21E5FD2FD004ABB22 /* XcodeIpa.pch */,
 			);
@@ -239,6 +242,7 @@
 			files = (
 				663A4B661E6193FD0058F019 /* ProjectBuildScript.sh in Resources */,
 				66D136981E5EC8C70025580E /* Assets.xcassets in Resources */,
+				66AEEF391E67E93C00488950 /* PgyerUploadScript.sh in Resources */,
 				66D136A51E5ECB6D0025580E /* GetSchemeScript.sh in Resources */,
 				66D136A71E5ECB720025580E /* TeamIDScript.sh in Resources */,
 				66D1369B1E5EC8C70025580E /* Main.storyboard in Resources */,

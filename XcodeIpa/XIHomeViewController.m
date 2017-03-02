@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, ScriptType)
     ScriptType_BuildScheme = 2 ,// build scheme
     ScriptType_TeamID = 3,// team id
     ScriptType_BuildArchive = 4,// build archive
+    ScriptType_PgyerUpload = 5 ,// pgyer upload
 };
 
 @interface XIHomeViewController ()
@@ -139,6 +140,34 @@ typedef NS_ENUM(NSInteger, ScriptType)
     [self runBuildArchiveScript];
 }
 
+- (IBAction)onIpaPathChoose:(id)sender
+{
+    _projectItem.ipaPath = _ipaPathControl.URL;
+}
+
+- (IBAction)onPgyerUploadClick:(id)sender
+{
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_projectItem.ipaPath.resourceSpecifier]) {
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"未生成ipa文件";
+        [alert runModal];
+        return;
+    }
+    
+    if ([XISettings sharedInstance].pyKey &&
+        [XISettings sharedInstance].pyApiKey) {
+        
+        [self runPgyerUploadScript];
+
+    }
+    else {
+        
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"未输入key";
+        [alert runModal];
+    }
+}
+
 #pragma mark - sh
 
 - (void)runGetSchemeScript:(NSURL *)url
@@ -210,6 +239,30 @@ typedef NS_ENUM(NSInteger, ScriptType)
     
     // ${7} export options plist location
     [arguments addObject:_projectItem.exportOptionsPlistPath.resourceSpecifier];
+    
+    [self runTaskWithLaunchPath:path andArgument:arguments];
+}
+
+- (void)runPgyerUploadScript
+{
+    _scriptType = ScriptType_PgyerUpload;
+    
+    [XISystem writeLog:@"Start Pgyer Upload Ipa..."];
+    
+    [self progressStatus:@"Start Pgyer Upload Ipa..."];
+    
+    NSMutableArray *arguments = [NSMutableArray array];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"PgyerUploadScript" ofType:@"sh"];
+    
+    // ${1} Ipa location
+    [arguments addObject:_projectItem.ipaPath.resourceSpecifier];
+    
+    // ${2} Pgyer key
+    [arguments addObject:[XISettings sharedInstance].pyKey];
+    
+    // ${3} Pgyer api key
+    [arguments addObject:[XISettings sharedInstance].pyApiKey];
     
     [self runTaskWithLaunchPath:path andArgument:arguments];
 }
@@ -295,32 +348,37 @@ typedef NS_ENUM(NSInteger, ScriptType)
 
             else if (_scriptType == ScriptType_BuildArchive)
             {// build archive
-                if ([outputString.lowercaseString containsString:@"archive succeeded"]) {
+                if ([outputString.lowercaseString containsString:@"archive succeeded"]){
 
                     [self progressStatus:@"Export Project..."];
                     
                     [outputPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-                } else if ([outputString.lowercaseString containsString:@"clean succeeded"]) {
+                } else if ([outputString.lowercaseString containsString:@"clean succeeded"]){
                     
                     [self progressStatus:@"Archive Project..."];
                     
                     [outputPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
-                } else if ([outputString.lowercaseString containsString:@"export succeeded"]) {
-                    
+                } else if ([outputString.lowercaseString containsString:@"export succeeded"]){
+                    //Check and Upload IPA File
                     [self progressStatus:@"Export IPA successed!"];
                     
-                } else if ([outputString.lowercaseString containsString:@"export failed"]) {
+                } else if ([outputString.lowercaseString containsString:@"export failed"]){
 
                     [self progressStatus:@"Export failed!"];
                     
-                } else if ([outputString.lowercaseString containsString:@"archive failed"]) {
+                } else if ([outputString.lowercaseString containsString:@"archive failed"]){
                     [self progressStatus:@"Archive failed!"];
                 } else {
                     
-                    [XISystem writeLog:outputString];
+                    if (outputString.length > 0) {
+                        [XISystem writeLog:outputString];
+                    }
                     
                     [outputPipe.fileHandleForReading waitForDataInBackgroundAndNotify];
                 }
+            }
+            else if (_scriptType == ScriptType_PgyerUpload) {// pgyer upload
+                
             }
         });
     }];

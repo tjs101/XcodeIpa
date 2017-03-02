@@ -22,4 +22,7 @@
 
 @property (nonatomic, strong) IBOutlet NSTextField *progressStatusLabel;/**<progress status>*/
 
+
+@property (nonatomic, strong) IBOutlet NSPathControl *ipaPathControl;/**<ipa path control>*/
+
 @end
