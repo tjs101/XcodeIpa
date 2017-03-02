@@ -15,15 +15,11 @@
     NSError *error = nil;
     NSArray *array = [self allKeychainCertificateWithError:&error];
     NSLog(@"all teamID - %@", array);
-    NSMutableArray *certficate = [NSMutableArray array];
-    
+
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSLog(@"obj %@==", obj);
-        
-        NSDictionary *dict = nil;
-        
-        
+
         
     }];
     
